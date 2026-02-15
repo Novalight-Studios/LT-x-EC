@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.alfakynz.ltxec.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ComparisonTooltipsMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

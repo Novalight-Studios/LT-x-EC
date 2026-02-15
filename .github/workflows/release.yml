@@ -1,0 +1,47 @@
+name: Create Draft Release
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: "25"
+          distribution: "microsoft"
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: Build
+        run: ./gradlew build
+      - name: capture build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifacts
+          path: build/libs/
+
+      - name: Create draft release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: LT x EC ${{ github.ref_name }}
+          draft: true
+          prerelease: false
+          body: "-"
+          files: |
+            build/libs/lt-x-ec-${{ github.ref_name }}.jar
+            build/libs/lt-x-ec-${{ github.ref_name }}-javadoc.jar
+            build/libs/lt-x-ec-${{ github.ref_name }}-sources.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
