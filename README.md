@@ -5,7 +5,8 @@ This mod fixes tooltip rendering issues when Legendary Tooltips and Equipment Co
 ## 🔄 Versions
 
 Minecraft >= 1.21.1 <br />
-Fabric >= 0.16.4
+Fabric >= 0.16.4 <br />
+NeoForge >= 21.1.233
 
 ## ⬇️ Installation
 
