@@ -1,16 +1,20 @@
 package com.alfakynz.ltxec;
 
-import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class Ltxec implements ModInitializer {
-	public static final String MOD_ID = "lt-x-ec";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+import com.mojang.logging.LogUtils;
 
-	@Override
-	public void onInitialize() {
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-	}
+@Mod(Ltxec.MODID)
+public class Ltxec {
+    public static final String MODID = "ltxec";
+    public static final Logger LOGGER = LogUtils.getLogger();
+
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+
+    }
 }
