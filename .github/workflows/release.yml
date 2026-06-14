@@ -19,7 +19,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          java-version: "25"
+          java-version: "21"
           distribution: "microsoft"
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
@@ -40,8 +40,8 @@ jobs:
           prerelease: false
           body: "-"
           files: |
-            build/libs/lt-x-ec-${{ github.ref_name }}.jar
-            build/libs/lt-x-ec-${{ github.ref_name }}-javadoc.jar
-            build/libs/lt-x-ec-${{ github.ref_name }}-sources.jar
+            build/libs/ltxec-${{ github.ref_name }}.jar
+            build/libs/ltxec-${{ github.ref_name }}-javadoc.jar
+            build/libs/ltxec-${{ github.ref_name }}-sources.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
