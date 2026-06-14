@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "${mod_id}",
-  "version": "${version}",
+  "version": "${mod_version}",
   "name": "${mod_name}",
   "description": "${mod_description}",
   "authors": ["${mod_author}"],
@@ -11,12 +11,12 @@
     "issues": "${mod_website}/issues"
   },
   "license": "${mod_license}",
-  "icon": "assets/lt-x-ec/icon.png",
+  "icon": "assets/${mod_id}/icon.png",
   "environment": "client",
   "entrypoints": {
     "main": ["com.alfakynz.ltxec.Ltxec"]
   },
-  "mixins": ["lt-x-ec.mixins.json"],
+  "mixins": ["ltxec.mixins.json"],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "minecraft": ">=${minecraft_version}",
